@@ -7,7 +7,7 @@ Sistem Perpustakaan Online ini merupakan sebuah sistem untuk mengelola buku sert
 fitur fitur yang terdapat disistem ini meliputi:
 
 -   Buku Manajemen (CRUD)
--   Kategori Manajemen (CRUD) (<span style="color: red">Cooming Soon</span>)
+-   Kategori Manajemen (CRUD) (Cooming Soon)
 -   Pengelolaan Tempat Buku, Mis: Rak, Lemari (CRUD) (Cooming Soon)
 -   Pengelolaan Peminjaman (Peminjaman Maximal 7 hari) (Cooming Soon)
 -   Pengelolaan Pengembalian (Denda jika telat mengembalikan) (Cooming Soon)
