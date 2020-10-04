@@ -12,6 +12,6 @@ fitur fitur yang terdapat disistem ini meliputi:
 -   Pengelolaan Peminjaman (Peminjaman Maximal 7 hari) (Cooming Soon)
 -   Pengelolaan Pengembalian (Denda jika telat mengembalikan) (Cooming Soon)
 
-## Kebutuhan System
+## Kebutuhan Server
 
-Sistem ini dibuat menggunakan laravel 8 untuk kebutuhan sistem dapat dilihat pada link berikut [Server Requirement](https://laravel.com/docs/8.x#server-requirements)
+Sistem ini dibuat menggunakan laravel 8 untuk kebutuhan server dapat dilihat pada link berikut [Server Requirement](https://laravel.com/docs/8.x#server-requirements)
