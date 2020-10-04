@@ -1,6 +1,6 @@
 ## Sistem Perpustakaan Online
 
-Sistem Perpustakaan Online ini merupakan sebuah sistem untuk mengelola buku serta mengelola peminjaman buku pada ssebuah perpustakaan, dengan menggunakan sistem ini, akan mengurangi penggunaan kertas dalam melakukan peminjaman buku karena semua data peminjaman buku akan disimpan kedalam database:
+Sistem Perpustakaan Online ini merupakan sebuah sistem untuk mengelola buku serta mengelola peminjaman buku pada sebuah perpustakaan, dengan menggunakan sistem ini, akan mengurangi penggunaan kertas dalam melakukan peminjaman buku karena semua data peminjaman buku akan disimpan kedalam database:
 
 ## Fitur Sistem
 
