@@ -9,17 +9,17 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'bookshelf_id', 'title', 'slug', 'isbn', 'author', 'publisher', 'year', 'stock'];
+    protected $fillable = ['category_id', 'title', 'slug', 'isbn', 'author', 'publisher', 'year', 'stock'];
 
-    protected $with = ['category', 'bookshelf'];
+    protected $with = ['category', 'bookshelves'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function bookshelf()
+    public function bookshelves()
     {
-        return $this->belongsTo(Bookshelf::class, 'id');
+        return $this->belongsToMany(Bookshelf::class);
     }
 }

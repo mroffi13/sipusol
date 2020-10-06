@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Select 2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     @livewireStyles
 </head>
 <body>
@@ -25,5 +28,21 @@
         @yield('app')
     </div>
     @livewireScripts
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $('.select2').select2({
+            width: 'resolve',
+            placeholder: 'Choose bookshelf!'
+        });
+
+        function onDelete(e){
+            if(confirm('Are you sure to delete this books?')){
+                return true;
+            }else{
+                e.preventDefault();
+            }
+        }
+    </script>
 </body>
 </html>

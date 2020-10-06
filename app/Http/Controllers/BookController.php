@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\{Book, Bookshelf, Category};
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -26,6 +27,9 @@ class BookController extends Controller
     public function create()
     {
         //
+        $bookshelves = Bookshelf::get();
+        $categories = Category::get();
+        return view('backend.books.create', compact('bookshelves', 'categories'));
     }
 
     /**
@@ -37,6 +41,27 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title'       => 'required',
+            'category_id' => 'required',
+            'bookshelves' => 'required',
+            'author'      => 'required',
+            'publisher'   => 'required',
+            'year'        => 'required',
+            'isbn'        => 'required',
+            'stock'       => 'required',
+        ]);
+
+        $attr = $request->all();
+        $attr['slug'] = Str::slug(request('title'));
+
+        $book = Book::create($attr);
+        $book->bookshelves()->attach(request('bookshelves'));
+
+        return redirect()->route('books')->with([
+            'class' => 'success',
+            'message' => 'Buku berhasil ditambah!'
+        ]);
     }
 
     /**
@@ -82,6 +107,7 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+        $book->bookshelves()->detach();
         $book->delete();
         return back()->with([
             'class' => 'success',

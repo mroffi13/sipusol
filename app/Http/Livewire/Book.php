@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class Book extends Component
 {
-    public $title, $category, $bookshelf, $cover, $isbn, $author, $publisher, $year, $stock;
+    public $title, $category, $cover, $isbn, $author, $publisher, $year, $stock;
+    public $bookshelves = [];
 
     public function render()
     {
@@ -17,13 +18,13 @@ class Book extends Component
 
     public function show($id)
     {
-        $book = ModelsBook::where('id', $id)->first();
+        $book = ModelsBook::find($id);
         $this->title = $book->title;
         $this->category = $book->category->name;
         $this->cover = $book->cover;
         $this->isbn = $book->isbn;
         $this->author = $book->author;
-        $this->bookshelf = $book->bookshelf->name;
+        $this->bookshelves = $book->bookshelves;
         $this->publisher = $book->publisher;
         $this->year = $book->year;
         $this->stock = $book->stock;

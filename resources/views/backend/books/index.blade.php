@@ -12,13 +12,5 @@
             <livewire:book>
         </div>
     </div>
-    <script>
-        function onDelete(){
-            if(confirm('Are you sure to delete this books')){
-                document.getElementById('delete').submit();
-            }else{
-                return false;
-            }
-        }
-    </script>
+    
 @endsection

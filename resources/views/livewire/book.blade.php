@@ -27,10 +27,11 @@
                     <td class="align-middle">{{ $book->stock }}</td>
                     <td class="align-middle">
                         <a href="#" class="btn btn-success btn-sm">Edit</a>
-                        <a href="{{ route('books.delete', $book->id) }}" class="btn btn-danger btn-sm" onclick="event.preventDefault(); onDelete()">Delete</a>
-                        <form id="delete" action="{{ route('books.delete', $book->id) }}" method="post" class="d-none">
+                        {{-- <a href="{{ route('books.delete', $book->id) }}" class="btn btn-danger btn-sm" onclick="event.preventDefault(); onDelete()">Delete</a> --}}
+                        <form id="btnDelete" action="{{ route('books.delete', $book->id) }}" method="post" onsubmit="onDelete(event); return true" class="d-inline">
                             @csrf
                             @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm ">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -57,7 +58,14 @@
                             <div class="card-body">
                               <h5 class="card-title">{{ $title }}</h5>
                               <small class="text-muted">{{ $author }} &middot; {{ $year }} | {{ $publisher }}</small>
-                              <p class="card-text">{{ $category }} | {{ $bookshelf }}</p>
+                              <p class="card-text">
+                                {{ $category }}  &middot;
+                                @foreach ($bookshelves as $bookshelf)
+                                    @if ($bookshelf->name)
+                                          |  {{ $bookshelf->name }} 
+                                    @endif
+                                @endforeach
+                              </p>
                               <p class="card-text">{{ $isbn }}</p>
                               <small class="text-muted">Stock: {{ $stock }}</small>
                             </div>
